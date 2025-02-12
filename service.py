@@ -1,6 +1,7 @@
 from webcam import WebcamServicer
 from concurrent import futures
-from pb2 import webcam_service_pb2_grpc
+import webcam_service_pb2_grpc
+import webcam_service_pb2
 import grpc
 
 
