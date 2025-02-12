@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+
+service WebcamService {
+    rpc StartStreaming (StartRequest) returns (StartResponse){}
+
+    rpc StopStreaming (StopRequest) returns (StopResponse){}
+
+    rpc CaptureImage (ImageRequest) returns (ImageResponse){}
+    
+    rpc ImageStream (stream ImageRequest) returns (stream ImageResponse){}
+}
+
+message StartRequest {
+    string device_id = 1;
+
+}
+
+message StartResponse {
+    bool success = 1;
+
+}
+
+message ImageRequest {
+    string device_id = 1;
+}
+
+
+message ImageCapture {
+    Image image = 3;
+}
+message Image {
+    enum Format {
+        FORMAT_UNKNOWN = 0;
+
+        FORMAT_JPEG = 1;
+
+        FORMAT_RAW = 2;
+    }
+    enum PixelFormat {
+        PIXEL_FORMAT_UNKNOWN = 0;
+
+        // One byte per pixel.
+        PIXEL_FORMAT_GREYSCALE_U8 = 1;
+
+        // Three bytes per pixel.
+        PIXEL_FORMAT_RGB_U8 = 3;
+
+        // Four bytes per pixel.
+        PIXEL_FORMAT_RGBA_U8 = 4;
+
+        // Little-endian uint16 z-distance from camera (mm).
+        PIXEL_FORMAT_DEPTH_U16 = 5;
+
+        // Big-endian uint16
+        PIXEL_FORMAT_GREYSCALE_U16 = 6;
+
+
+    }
+    int32 cols = 2;
+
+    int32 rows =3;
+
+    bytes data = 4;
+
+    Format format = 5;
+
+    PixelFormat pixel_format = 6;
+
+}
+message ImageResponse {
+    
+    // ImageCapture shot = 32;
+
+    int32 cols = 2;
+    int32 rows = 3;
+    bytes image_data = 4;
+}
+
+
+message StopRequest {
+    string device_id = 1;
+}
+
+message StopResponse {
+    bool success = 1;
+}
