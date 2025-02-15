@@ -1,19 +1,24 @@
-from webcam import WebcamServicer
-from concurrent import futures
-import webcam_service_pb2_grpc
-import webcam_service_pb2
+import cv2
 import grpc
-
+from concurrent import futures
+import time
+import webcam_service_pb2
+import webcam_service_pb2_grpc
+from webcam import WebCamService
 
 def serve():
-    #create the server
+    """define the server side"""
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    webcam_service_pb2_grpc.add_WebcamServiceServicer_to_server(WebcamServicer(),server)
+    webcam_service_pb2_grpc.add_WebcamServiceServicer_to_server(WebCamService(),server)
+
     server.add_insecure_port('[::]:50051')
-    #start the server
     server.start()
-    #wait for the server to stop
-    server.wait_for_termination()
+    print("Server started on port 50051")
+    try:
+        while True:
+            time.sleep(86400)  # Keep the server running
+    except KeyboardInterrupt:
+        server.stop(0)
 
-
-serve()
+if __name__ == "__main__":
+    serve()

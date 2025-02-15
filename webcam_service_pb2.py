@@ -24,33 +24,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14webcam_service.proto\"!\n\x0cStartRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\" \n\rStartResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"!\n\x0cImageRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"%\n\x0cImageCapture\x12\x15\n\x05image\x18\x03 \x01(\x0b\x32\x06.Image\"\xf1\x02\n\x05Image\x12\x0c\n\x04\x63ols\x18\x02 \x01(\x05\x12\x0c\n\x04rows\x18\x03 \x01(\x05\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\x0c\x12\x1d\n\x06\x66ormat\x18\x05 \x01(\x0e\x32\r.Image.Format\x12(\n\x0cpixel_format\x18\x06 \x01(\x0e\x32\x12.Image.PixelFormat\"=\n\x06\x46ormat\x12\x12\n\x0e\x46ORMAT_UNKNOWN\x10\x00\x12\x0f\n\x0b\x46ORMAT_JPEG\x10\x01\x12\x0e\n\nFORMAT_RAW\x10\x02\"\xb5\x01\n\x0bPixelFormat\x12\x18\n\x14PIXEL_FORMAT_UNKNOWN\x10\x00\x12\x1d\n\x19PIXEL_FORMAT_GREYSCALE_U8\x10\x01\x12\x17\n\x13PIXEL_FORMAT_RGB_U8\x10\x03\x12\x18\n\x14PIXEL_FORMAT_RGBA_U8\x10\x04\x12\x1a\n\x16PIXEL_FORMAT_DEPTH_U16\x10\x05\x12\x1e\n\x1aPIXEL_FORMAT_GREYSCALE_U16\x10\x06\"?\n\rImageResponse\x12\x0c\n\x04\x63ols\x18\x02 \x01(\x05\x12\x0c\n\x04rows\x18\x03 \x01(\x05\x12\x12\n\nimage_data\x18\x04 \x01(\x0c\" \n\x0bStopRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"\x1f\n\x0cStopResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\xd7\x01\n\rWebcamService\x12\x31\n\x0eStartStreaming\x12\r.StartRequest\x1a\x0e.StartResponse\"\x00\x12.\n\rStopStreaming\x12\x0c.StopRequest\x1a\r.StopResponse\"\x00\x12/\n\x0c\x43\x61ptureImage\x12\r.ImageRequest\x1a\x0e.ImageResponse\"\x00\x12\x32\n\x0bImageStream\x12\r.ImageRequest\x1a\x0e.ImageResponse\"\x00(\x01\x30\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14webcam_service.proto\"!\n\x0cImageRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"#\n\rImageResponse\x12\x12\n\nimage_data\x18\x04 \x01(\x0c\x32t\n\rWebcamService\x12/\n\x0c\x43\x61ptureImage\x12\r.ImageRequest\x1a\x0e.ImageResponse\"\x00\x12\x32\n\x0bImageStream\x12\r.ImageRequest\x1a\x0e.ImageResponse\"\x00(\x01\x30\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'webcam_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_STARTREQUEST']._serialized_start=24
-  _globals['_STARTREQUEST']._serialized_end=57
-  _globals['_STARTRESPONSE']._serialized_start=59
-  _globals['_STARTRESPONSE']._serialized_end=91
-  _globals['_IMAGEREQUEST']._serialized_start=93
-  _globals['_IMAGEREQUEST']._serialized_end=126
-  _globals['_IMAGECAPTURE']._serialized_start=128
-  _globals['_IMAGECAPTURE']._serialized_end=165
-  _globals['_IMAGE']._serialized_start=168
-  _globals['_IMAGE']._serialized_end=537
-  _globals['_IMAGE_FORMAT']._serialized_start=292
-  _globals['_IMAGE_FORMAT']._serialized_end=353
-  _globals['_IMAGE_PIXELFORMAT']._serialized_start=356
-  _globals['_IMAGE_PIXELFORMAT']._serialized_end=537
-  _globals['_IMAGERESPONSE']._serialized_start=539
-  _globals['_IMAGERESPONSE']._serialized_end=602
-  _globals['_STOPREQUEST']._serialized_start=604
-  _globals['_STOPREQUEST']._serialized_end=636
-  _globals['_STOPRESPONSE']._serialized_start=638
-  _globals['_STOPRESPONSE']._serialized_end=669
-  _globals['_WEBCAMSERVICE']._serialized_start=672
-  _globals['_WEBCAMSERVICE']._serialized_end=887
+  _globals['_IMAGEREQUEST']._serialized_start=24
+  _globals['_IMAGEREQUEST']._serialized_end=57
+  _globals['_IMAGERESPONSE']._serialized_start=59
+  _globals['_IMAGERESPONSE']._serialized_end=94
+  _globals['_WEBCAMSERVICE']._serialized_start=96
+  _globals['_WEBCAMSERVICE']._serialized_end=212
 # @@protoc_insertion_point(module_scope)
